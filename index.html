@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Minute Work Face System - Quiz</title>
+    <meta name="description" content="Discover your perfect work makeup style in just 2 minutes">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="5 Minute Work Face System - Quiz">
+    <meta property="og:description" content="Discover your perfect work makeup style in just 2 minutes">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">0%</div>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container">
+        
+        <!-- Welcome Screen -->
+        <div class="quiz-screen active" id="welcomeScreen">
+            <div class="welcome-content">
+                <div class="logo-icon">
+                    <img src="images/makeup.jpg" alt="Professional makeup" class="makeup-image">
+                </div>
+                <h1>Discover Your Work Makeup Style</h1>
+                <p class="subtitle">In just 2 minutes, find out which style is perfect for you</p>
+                <button class="cta-button" onclick="startQuiz()">
+                    <span>START NOW</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-screen" id="question1">
+            <div class="question-content">
+                <div class="question-number">Question 1 of 10</div>
+                <h2>What's your biggest makeup challenge?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(1, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">I don't know how to choose the right colors</span>
+                    </button>
+                    <button class="option" onclick="selectOption(1, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">I don't have time in the morning</span>
+                    </button>
+                    <button class="option" onclick="selectOption(1, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">My makeup doesn't last all day</span>
+                    </button>
+                    <button class="option" onclick="selectOption(1, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">I don't know contouring/highlighting</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-screen" id="question2">
+            <div class="question-content">
+                <div class="question-number">Question 2 of 10</div>
+                <h2>How much time do you spend on makeup in the morning?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(2, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Less than 5 minutes</span>
+                    </button>
+                    <button class="option" onclick="selectOption(2, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">5-10 minutes</span>
+                    </button>
+                    <button class="option" onclick="selectOption(2, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">10-15 minutes</span>
+                    </button>
+                    <button class="option" onclick="selectOption(2, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">More than 15 minutes</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-screen" id="question3">
+            <div class="question-content">
+                <div class="question-number">Question 3 of 10</div>
+                <h2>What's your skin type?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(3, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Oily</span>
+                    </button>
+                    <button class="option" onclick="selectOption(3, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Dry</span>
+                    </button>
+                    <button class="option" onclick="selectOption(3, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Combination</span>
+                    </button>
+                    <button class="option" onclick="selectOption(3, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">Sensitive</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-screen" id="question4">
+            <div class="question-content">
+                <div class="question-number">Question 4 of 10</div>
+                <h2>When do you need makeup the most?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(4, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Important meetings</span>
+                    </button>
+                    <button class="option" onclick="selectOption(4, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Social events</span>
+                    </button>
+                    <button class="option" onclick="selectOption(4, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Daily at the office</span>
+                    </button>
+                    <button class="option" onclick="selectOption(4, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">All of the above</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-screen" id="question5">
+            <div class="question-content">
+                <div class="question-number">Question 5 of 10</div>
+                <h2>Which products do you use regularly?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(5, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Just foundation and lipstick</span>
+                    </button>
+                    <button class="option" onclick="selectOption(5, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Foundation, concealer, and powder</span>
+                    </button>
+                    <button class="option" onclick="selectOption(5, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Full kit (eyeshadow, blush, etc.)</span>
+                    </button>
+                    <button class="option" onclick="selectOption(5, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">I don't use anything</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="quiz-screen" id="question6">
+            <div class="question-content">
+                <div class="question-number">Question 6 of 10</div>
+                <h2>What's your biggest makeup mistake?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(6, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Wrong foundation color</span>
+                    </button>
+                    <button class="option" onclick="selectOption(6, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Too much powder</span>
+                    </button>
+                    <button class="option" onclick="selectOption(6, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Not prepping skin before</span>
+                    </button>
+                    <button class="option" onclick="selectOption(6, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">All of these!</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="quiz-screen" id="question7">
+            <div class="question-content">
+                <div class="question-number">Question 7 of 10</div>
+                <h2>What's your ideal makeup style?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(7, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Natural and subtle</span>
+                    </button>
+                    <button class="option" onclick="selectOption(7, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Professional and subtly defined</span>
+                    </button>
+                    <button class="option" onclick="selectOption(7, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Sophisticated and elegant</span>
+                    </button>
+                    <button class="option" onclick="selectOption(7, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">Whatever is quick and pretty</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="quiz-screen" id="question8">
+            <div class="question-content">
+                <div class="question-number">Question 8 of 10</div>
+                <h2>How much do you spend on makeup products per month?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(8, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Nothing</span>
+                    </button>
+                    <button class="option" onclick="selectOption(8, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Up to $30</span>
+                    </button>
+                    <button class="option" onclick="selectOption(8, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">$30-100</span>
+                    </button>
+                    <button class="option" onclick="selectOption(8, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">More than $100</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="quiz-screen" id="question9">
+            <div class="question-content">
+                <div class="question-number">Question 9 of 10</div>
+                <h2>How would you rate your makeup skills?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(9, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Complete beginner</span>
+                    </button>
+                    <button class="option" onclick="selectOption(9, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Basic</span>
+                    </button>
+                    <button class="option" onclick="selectOption(9, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Intermediate</span>
+                    </button>
+                    <button class="option" onclick="selectOption(9, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">Advanced</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="quiz-screen" id="question10">
+            <div class="question-content">
+                <div class="question-number">Question 10 of 10</div>
+                <h2>Are you ready to transform your makeup routine?</h2>
+                <div class="options">
+                    <button class="option" onclick="selectOption(10, 'A')">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Yes, I want to start!</span>
+                    </button>
+                    <button class="option" onclick="selectOption(10, 'B')">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">I need to see first</span>
+                    </button>
+                    <button class="option" onclick="selectOption(10, 'C')">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">I'm curious</span>
+                    </button>
+                    <button class="option" onclick="selectOption(10, 'D')">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">I should have done this already</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div class="quiz-screen" id="resultScreen">
+            <div class="result-content">
+                <div class="result-icon">
+                    <svg viewBox="0 0 100 100" class="success-icon">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#d4a574" stroke-width="2"/>
+                        <path d="M30 50 L45 65 L70 35" fill="none" stroke="#e8b4b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h1>Your Makeup Profile is Ready!</h1>
+                <p class="result-subtitle">Discover how the 5 Minute Work Face System can transform your routine</p>
+                <div class="result-stats">
+                    <div class="stat">
+                        <span class="stat-value" id="resultTime">5 min</span>
+                        <span class="stat-label">Makeup time</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value" id="resultStyle">Natural</span>
+                        <span class="stat-label">Ideal style</span>
+                    </div>
+                </div>
+                <a href="https://type.sauderotina.com.br/oft1" class="cta-button result-button">
+                    <span>SEE MY RESULT</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script -->
+    <script src="js/quiz.js"></script>
+</body>
+</html>
