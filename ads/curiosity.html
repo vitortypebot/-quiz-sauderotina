@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, initial-scale=1.0">
+    <title>Ad 3 - Curiosity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 1080px; height: 1080px; overflow: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            position: relative;
+        }
+        .glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,215,0,0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .question {
+            font-size: 220px;
+            color: #ffd700;
+            text-shadow: 0 0 60px rgba(255,215,0,0.5);
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .headline {
+            font-size: 68px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            line-height: 1.05;
+            margin-bottom: 45px;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+        .gold { color: #ffd700; }
+        .secret {
+            background: linear-gradient(135deg, rgba(255,215,0,0.12) 0%, rgba(255,215,0,0.05) 100%);
+            border: 2px solid #ffd700;
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+        .secret::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #ffd700);
+            z-index: -1;
+            border-radius: 32px;
+            animation: glow 3s linear infinite;
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .secret-text {
+            font-size: 38px;
+            color: white;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        .big { color: #ffd700; font-size: 54px; }
+        .cta {
+            margin-top: 50px;
+            font-size: 32px;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .arrow {
+            font-size: 44px;
+            color: #ffd700;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(12px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    <div class="question">?</div>
+    <h1 class="headline">THE SECRET <span class="gold">NO ONE</span> TELLS YOU</h1>
+    <div class="secret">
+        <p class="secret-text">
+            How to do professional makeup in <span class="big">5 MINUTES</span> and leave the house feeling confident
+        </p>
+    </div>
+    <div class="cta">
+        <span>Click to find out</span>
+        <span class="arrow">→</span>
+    </div>
+</body>
+</html>

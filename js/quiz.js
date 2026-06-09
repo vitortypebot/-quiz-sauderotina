@@ -6,6 +6,7 @@
 let currentQuestion = 0;
 const totalQuestions = 10;
 let answers = {};
+let userEmail = '';
 
 // DOM Elements
 const progressBar = document.getElementById('progressBar');
@@ -16,6 +17,7 @@ const screens = document.querySelectorAll('.quiz-screen');
 function init() {
     updateProgress();
     setupEventListeners();
+    setupEmailForm();
 }
 
 // Start Quiz
@@ -72,9 +74,38 @@ function selectOption(questionNumber, option) {
             showScreen(`question${questionNumber + 1}`);
             updateProgress();
         } else {
-            showResult();
+            showEmailScreen();
         }
     }, 400);
+}
+
+// Show Email Screen
+function showEmailScreen() {
+    showScreen('emailScreen');
+    progressBar.style.width = '100%';
+    progressText.textContent = '100%';
+}
+
+// Setup Email Form
+function setupEmailForm() {
+    const emailForm = document.getElementById('emailForm');
+    if (emailForm) {
+        emailForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('emailInput');
+            userEmail = emailInput.value;
+            
+            // Track email capture with Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Quiz Email Capture',
+                    content_category: '5 Minute Work Face System'
+                });
+            }
+            
+            showResult();
+        });
+    }
 }
 
 // Update Progress Bar
@@ -91,36 +122,89 @@ function showResult() {
     
     // Update result screen
     document.getElementById('resultTime').textContent = result.time;
-    document.getElementById('resultStyle').textContent = result.style;
+    document.getElementById('resultMoney').textContent = result.money;
+    document.getElementById('resultHours').textContent = result.hours;
     
     // Show result screen
     showScreen('resultScreen');
     
-    // Update progress to 100%
-    progressBar.style.width = '100%';
-    progressText.textContent = '100%';
+    // Start result timer
+    startResultTimer();
 }
 
 // Calculate Result
 function calculateResult() {
-    // Simple result calculation based on answers
-    const timeAnswers = ['A', 'B', 'C', 'D'];
-    const styleAnswers = ['A', 'B', 'C', 'D'];
-    
-    // Get time answer (question 2)
+    // Calculate based on answers
     const timeAnswer = answers[2] || 'B';
-    const timeIndex = timeAnswers.indexOf(timeAnswer);
-    const times = ['3 min', '5 min', '10 min', '15 min'];
+    const challengeAnswer = answers[1] || 'A';
+    const experienceAnswer = answers[9] || 'B';
     
-    // Get style answer (question 7)
-    const styleAnswer = answers[7] || 'B';
-    const styleIndex = styleAnswers.indexOf(styleAnswer);
-    const styles = ['Natural', 'Profissional', 'Sofisticado', 'Rápido'];
+    // Time calculations
+    let timeSpent = '30+ min';
+    let moneySaved = '$150+';
+    let hoursWasted = '18+ hrs';
+    
+    // Adjust based on time answer
+    if (timeAnswer === 'A') {
+        timeSpent = '15+ min';
+        moneySaved = '$80+';
+        hoursWasted = '9+ hrs';
+    } else if (timeAnswer === 'B') {
+        timeSpent = '20+ min';
+        moneySaved = '$100+';
+        hoursWasted = '12+ hrs';
+    } else if (timeAnswer === 'C') {
+        timeSpent = '30+ min';
+        moneySaved = '$150+';
+        hoursWasted = '18+ hrs';
+    } else if (timeAnswer === 'D') {
+        timeSpent = '45+ min';
+        moneySaved = '$200+';
+        hoursWasted = '27+ hrs';
+    }
+    
+    // Adjust based on challenge
+    if (challengeAnswer === 'A') {
+        moneySaved = '$120+';
+    } else if (challengeAnswer === 'B') {
+        hoursWasted = '15+ hrs';
+    }
     
     return {
-        time: times[timeIndex],
-        style: styles[styleIndex]
+        time: timeSpent,
+        money: moneySaved,
+        hours: hoursWasted
     };
+}
+
+// Start Result Timer
+function startResultTimer() {
+    // Set timer to 3 hours from now
+    const now = new Date();
+    const endTime = new Date(now.getTime() + 3 * 60 * 60 * 1000);
+    
+    const timerElement = document.getElementById('resultTimer');
+    if (!timerElement) return;
+    
+    function updateTimer() {
+        const now = new Date().getTime();
+        const diff = endTime - now;
+        
+        if (diff <= 0) {
+            // Timer expired, reset
+            startResultTimer();
+            return;
+        }
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+    
+    updateTimer();
+    setInterval(updateTimer, 1000);
 }
 
 // Setup Event Listeners
@@ -167,8 +251,17 @@ function setupEventListeners() {
 // Initialize on DOM load
 document.addEventListener('DOMContentLoaded', init);
 
-// Add loading state when transitioning to Typebot
+// Add loading state when transitioning to landing page
 document.querySelector('.result-button')?.addEventListener('click', function(e) {
+    // Track checkout click
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+            content_name: '5 Minute Work Face System',
+            value: 17.90,
+            currency: 'USD'
+        });
+    }
+    
     // Show loading state
     const loading = document.createElement('div');
     loading.className = 'loading';

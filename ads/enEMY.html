@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, initial-scale=1.0">
+    <title>Ad 1 - Enemy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 1080px; height: 1080px; overflow: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background: #ff4757;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .icon { font-size: 140px; margin-bottom: 40px; }
+        .headline {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            line-height: 1.05;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+        .red { color: #ff4757; }
+        .sub {
+            font-size: 34px;
+            color: #aaa;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .problems {
+            background: rgba(255, 71, 87, 0.12);
+            border: 2px solid #ff4757;
+            border-radius: 24px;
+            padding: 45px;
+            width: 100%;
+        }
+        .problem {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            font-size: 30px;
+            margin-bottom: 22px;
+        }
+        .problem:last-child { margin-bottom: 0; }
+        .x { color: #ff4757; font-size: 40px; font-weight: 900; }
+    </style>
+</head>
+<body>
+    <div class="badge">WARNING</div>
+    <div class="icon">⚠️</div>
+    <h1 class="headline">ARE YOU MAKING <span class="red">THESE</span> MISTAKES?</h1>
+    <p class="sub">Most women waste time and money on makeup</p>
+    <div class="problems">
+        <div class="problem"><span class="x">✗</span> Wrong foundation shade that looks like a mask</div>
+        <div class="problem"><span class="x">✗</span> Makeup that doesn't last 2 hours</div>
+        <div class="problem"><span class="x">✗</span> Spending hours and still getting bad results</div>
+    </div>
+</body>
+</html>

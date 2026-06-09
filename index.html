@@ -321,33 +321,61 @@
             </div>
         </div>
 
+        <!-- Email Capture Screen -->
+        <div class="quiz-screen" id="emailScreen">
+            <div class="email-content">
+                <div class="email-icon">📧</div>
+                <h1>Your Results Are Ready!</h1>
+                <p class="email-subtitle">Enter your email to receive your personalized makeup profile + a special discount</p>
+                <form class="email-form" id="emailForm">
+                    <input type="email" id="emailInput" placeholder="Enter your email address" required>
+                    <button type="submit" class="cta-button email-button">
+                        <span>SEND MY RESULTS</span>
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                        </svg>
+                    </button>
+                </form>
+                <p class="email-privacy">🔒 We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+        </div>
+
         <!-- Result Screen -->
         <div class="quiz-screen" id="resultScreen">
             <div class="result-content">
-                <div class="result-icon">
-                    <svg viewBox="0 0 100 100" class="success-icon">
-                        <circle cx="50" cy="50" r="45" fill="none" stroke="#d4a574" stroke-width="2"/>
-                        <path d="M30 50 L45 65 L70 35" fill="none" stroke="#e8b4b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                <div class="result-alert">
+                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-text">Based on your answers, you're wasting time every morning</span>
                 </div>
-                <h1>Your Makeup Profile is Ready!</h1>
-                <p class="result-subtitle">Discover how the 5 Minute Work Face System can transform your routine</p>
+                <h1>Your Personalized Results</h1>
                 <div class="result-stats">
-                    <div class="stat">
-                        <span class="stat-value" id="resultTime">5 min</span>
-                        <span class="stat-label">Makeup time</span>
+                    <div class="stat-box">
+                        <span class="stat-icon">⏰</span>
+                        <span class="stat-value" id="resultTime">30+ min</span>
+                        <span class="stat-label">You spend on makeup daily</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-value" id="resultStyle">Natural</span>
-                        <span class="stat-label">Ideal style</span>
+                    <div class="stat-box">
+                        <span class="stat-icon">💸</span>
+                        <span class="stat-value" id="resultMoney">$150+</span>
+                        <span class="stat-label">You could save per month</span>
                     </div>
+                    <div class="stat-box">
+                        <span class="stat-icon">📅</span>
+                        <span class="stat-value" id="resultHours">18+ hrs</span>
+                        <span class="stat-label">Wasted per month</span>
+                    </div>
+                </div>
+                <div class="result-urgency">
+                    <span class="urgency-badge">⏰ SPECIAL OFFER ENDS IN:</span>
+                    <span class="urgency-timer" id="resultTimer">02:59:47</span>
                 </div>
                 <a href="https://quiz.sauderotina.com.br/landing-page/" class="cta-button result-button">
-                    <span>SEE MY RESULT</span>
+                    <span>FIX MY ROUTINE NOW - $17.90</span>
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                     </svg>
                 </a>
+                <p class="result-guarantee">🛡️ 7-Day Money-Back Guarantee</p>
             </div>
         </div>
 

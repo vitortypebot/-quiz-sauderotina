@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, initial-scale=1.0">
+    <title>Story 3 - Curiosity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 1080px; height: 1920px; overflow: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #0f0f0f 0%, #0a0a2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 80px;
+            position: relative;
+        }
+        .glow {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .top-bar {
+            position: absolute;
+            top: 60px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .swipe {
+            font-size: 24px;
+            color: #666;
+        }
+        .question {
+            font-size: 280px;
+            color: #ffd700;
+            text-shadow: 0 0 80px rgba(255,215,0,0.4);
+            margin-bottom: 50px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .headline {
+            font-size: 80px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            line-height: 1.05;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+        }
+        .gold { color: #ffd700; }
+        .secret {
+            background: rgba(255,215,0,0.06);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 30px;
+            padding: 60px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+        .secret-text {
+            font-size: 42px;
+            color: white;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        .big { color: #ffd700; font-size: 64px; }
+        .timer {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .time-box {
+            background: rgba(255,215,0,0.1);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        .time-num {
+            font-size: 64px;
+            font-weight: 900;
+            color: #ffd700;
+        }
+        .time-label {
+            font-size: 22px;
+            color: #888;
+            text-transform: uppercase;
+        }
+        .bottom {
+            position: absolute;
+            bottom: 80px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: center;
+        }
+        .cta {
+            background: #ffd700;
+            color: #0f0f0f;
+            padding: 40px 90px;
+            border-radius: 60px;
+            font-size: 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    <div class="top-bar">
+        <div class="brand">5 Minute Work Face</div>
+        <div class="swipe">↑ Swipe up</div>
+    </div>
+    <div class="question">?</div>
+    <h1 class="headline">THE <span class="gold">BEAUTY SECRET</span> NO ONE SHARES</h1>
+    <div class="secret">
+        <p class="secret-text">
+            What if you could do <span class="big">PROFESSIONAL</span> makeup in just 5 minutes?
+        </p>
+    </div>
+    <div class="timer">
+        <div class="time-box">
+            <div class="time-num">5</div>
+            <div class="time-label">Minutes</div>
+        </div>
+        <div class="time-box">
+            <div class="time-num">0</div>
+            <div class="time-label">Skills needed</div>
+        </div>
+        <div class="time-box">
+            <div class="time-num">100</div>
+            <div class="time-label">% Confidence</div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="cta">Discover Now →</div>
+    </div>
+</body>
+</html>

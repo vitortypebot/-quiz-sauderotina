@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad Image 3 - Curiosidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 1080px;
+            height: 1080px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+        }
+        
+        .bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .question-mark {
+            font-size: 200px;
+            color: #ffd700;
+            text-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .headline {
+            font-size: 60px;
+            font-weight: 900;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+        
+        .highlight {
+            color: #ffd700;
+            display: block;
+        }
+        
+        .secret-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 2px solid #ffd700;
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 850px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secret-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #ffd700);
+            z-index: -1;
+            border-radius: 30px;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        @keyframes borderGlow {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .secret-text {
+            font-size: 36px;
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        
+        .secret-highlight {
+            color: #ffd700;
+            font-size: 48px;
+        }
+        
+        .cta-hint {
+            margin-top: 40px;
+            font-size: 28px;
+            color: #cccccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .arrow {
+            font-size: 40px;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="container">
+        <div class="question-mark">?</div>
+        <h1 class="headline">
+            O SEGREDO QUE <span class="highlight">NINGUÉM</span> CONTA
+        </h1>
+        <div class="secret-box">
+            <p class="secret-text">
+                Como fazer maquiagem profissional em <span class="secret-highlight">5 MINUTOS</span> e sair de casa com autoestima nas alturas
+            </p>
+        </div>
+        <div class="cta-hint">
+            <span>Clique e descubra</span>
+            <span class="arrow">→</span>
+        </div>
+    </div>
+</body>
+</html>
