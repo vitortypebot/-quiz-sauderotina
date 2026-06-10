@@ -255,11 +255,11 @@ document.addEventListener('DOMContentLoaded', init);
 document.querySelector('.result-button')?.addEventListener('click', function(e) {
     // Track checkout click
     if (typeof fbq !== 'undefined') {
-        fbq('track', 'InitiateCheckout', {
-            content_name: '5 Minute Work Face System',
-            value: 17.90,
-            currency: 'USD'
-        });
+            fbq('track', 'InitiateCheckout', {
+                content_name: '5 Minute Work Face System',
+                value: 10,
+                currency: 'USD'
+            });
     }
     
     // Show loading state

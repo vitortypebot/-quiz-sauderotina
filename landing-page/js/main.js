@@ -91,7 +91,7 @@ function initCTATracking() {
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'InitiateCheckout', {
                     content_name: '5 Minute Work Face System',
-                    value: 17.90,
+                    value: 10,
                     currency: 'USD'
                 });
             }
